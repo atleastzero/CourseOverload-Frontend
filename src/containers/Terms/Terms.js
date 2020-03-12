@@ -7,8 +7,8 @@ import Term from '../../components/Term/Term'
 class Terms extends Component {
     state = {
         terms: {
-            taken: <Taken></Taken>,
-            taking: <Taking></Taking>,
+            taken: <Term termName="Taken"></Term>,
+            taking: <Term termName="Taking"></Term>,
             future: []
         },
         totalCreditsTaken: 0,
