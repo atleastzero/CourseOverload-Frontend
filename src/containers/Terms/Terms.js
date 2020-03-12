@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Taken from '../../components/Term/Taken/Taken'
-import Taking from '../../components/Term/Taking/Taking'
 import Term from '../../components/Term/Term'
+
+import classes from "./Terms.module.css"
 
 class Terms extends Component {
     state = {
@@ -18,7 +18,7 @@ class Terms extends Component {
     render() {
 
         return (
-            <div>
+            <div className={classes.Terms}>
                 {this.state.terms.taken}
                 {this.state.terms.taking}
                 {/* {this.state.terms.future} */}

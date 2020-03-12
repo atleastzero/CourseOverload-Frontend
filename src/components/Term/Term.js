@@ -1,7 +1,9 @@
 import React from 'react';
 
+import classes from './Term.module.css'
+
 const term = props => (
-    <div>
+    <div className={classes.Term}>
         {props.termName}
     </div>
 )

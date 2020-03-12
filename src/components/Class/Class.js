@@ -2,7 +2,7 @@ import React from 'react';
 
 const course = props => (
     <div>
-        coufddsfgsfgrse
+        {props.courseName}
     </div>
 )
 

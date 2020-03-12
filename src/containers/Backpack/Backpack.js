@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 
-import Class from '../../components/Class/Class'
+import Course from '../../components/Class/Class'
 
 class Backpack extends Component {
     state = {
-        classes: [{
+        courses: [{
                 code: "Sample123",
                 name: "Sample Name", 
                 description: "Sample Description", 
                 prereqs: null,
                 coreqs: null
+            }, {
+                code: "PSY101",
+                name: "Intro to Psych"
             }
         ]
     }
 
     render() {
-        let transformClasses = Object.keys(this.state.classes)
+        let transformCourses = Object.keys(this.state.courses)
         .map((key) => {
-             return [...Array(this.state.classes[key])].map((_, i) => {
-                return <Class key={key + i} />;
+             return [...Array(this.state.courses[key])].map((_, i) => {
+                return <Course key={key + i} courseName={this.state.courses[key].name} />;
              });
         })
         .reduce((arr, el) => {
@@ -27,7 +30,7 @@ class Backpack extends Component {
 
         return (
             <div>
-                {transformClasses}
+                {transformCourses}
             </div>
         );
     }
