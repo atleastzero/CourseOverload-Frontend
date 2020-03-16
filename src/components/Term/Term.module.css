@@ -1,5 +1,6 @@
 .Term {
     height: 75vh;
+    width: 30vw;
     border: 1px solid black;
     margin: 1%;
 }
