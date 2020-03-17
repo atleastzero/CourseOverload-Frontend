@@ -46,7 +46,7 @@ Enforce prerequisite and corequisite course requirements.
 
 ## Wireframe
 
-![Wireframe](https://docs.google.com/document/d/16fVVtZc8moCP3kCJesbgeazDsUjuyQRd5ONWP5VEWjY/edit?usp=sharing)
+![Wireframe](https://drive.google.com/file/d/1rsfDRbS_a7zbhKf7tEl-6Ucz02J9pkcJ/view?usp=sharing)
 
 
 ## Evaluation
