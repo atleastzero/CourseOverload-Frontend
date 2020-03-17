@@ -44,9 +44,9 @@ Enforce prerequisite and corequisite course requirements.
 3. Build features to assist the users process.
 
 
-## Wireframes
+## Wireframe
 
-**Insert wireframe pictures here**
+![Wireframe](https://docs.google.com/document/d/16fVVtZc8moCP3kCJesbgeazDsUjuyQRd5ONWP5VEWjY/edit?usp=sharing)
 
 
 ## Evaluation
