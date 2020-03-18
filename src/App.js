@@ -1,5 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+import ReactDOM from 'react-dom'
+import { DndProvider } from 'react-dnd'
+import Backend from 'react-dnd-html5-backend'
 
 import Backpack from './containers/Backpack/Backpack'
 import Terms from './containers/Terms/Terms'
@@ -25,8 +27,10 @@ function App() {
     //   </header>
     // </div>
     <div className="App">
-      <Terms />
-      <Backpack />
+      <DndProvider backend={Backend}>
+        <Terms />
+        <Backpack />
+			</DndProvider>
     </div>
   );
 }

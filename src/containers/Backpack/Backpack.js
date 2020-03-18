@@ -1,11 +1,21 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
+import ItemTypes from '../../components/Class/ItemTypes'
 
 import Course from '../../components/Class/Class'
 
 import classes from './Backpack.module.css'
 
-const Backpack = ({ accept, onDrop }) => {
+const Backpack = () => {
+    const [{ canDrop, isOver }, drop] = useDrop({
+        accept: ItemTypes.COURSE,
+        drop: () => ({ name: 'Backpack' }),
+        collect: monitor => ({
+          isOver: monitor.isOver(),
+          canDrop: monitor.canDrop(),
+        }),
+    })
+
     var courses = [{
             code: "Sample123",
             name: "Sample Name", 
@@ -17,20 +27,11 @@ const Backpack = ({ accept, onDrop }) => {
             name: "Intro to Psych"
         }
     ]
-    
-    const [{ isOver, canDrop }, drop] = useDrop({
-        accept,
-        drop: onDrop,
-        collect: monitor => ({
-          isOver: monitor.isOver(),
-          canDrop: monitor.canDrop(),
-        }),
-      })
 
-    let transformCourses = Object.keys(this.state.courses)
+    let transformCourses = Object.keys(courses)
     .map((key) => {
-            return [...Array(this.state.courses[key])].map((_, i) => {
-            return <Course key={key + i} courseName={this.state.courses[key].name} />;
+            return [...Array(courses[key])].map((_, i) => {
+            return <Course key={key + i} courseName={courses[key].name} />;
             });
     })
     .reduce((arr, el) => {
@@ -39,6 +40,7 @@ const Backpack = ({ accept, onDrop }) => {
 
     return (
         <div className={classes.Backpack}>
+            <h1>Backpack</h1>
             {transformCourses}
         </div>
     );

@@ -1,9 +1,28 @@
-import React from 'react';
+import React from 'react'
+import { useDrag } from 'react-dnd'
+import ItemTypes from './ItemTypes'
 
-const course = props => (
-    <div>
-        {props.courseName}
-    </div>
-)
+import classes from './Class.module.css'
 
-export default course
+const Course = ({ courseName }) => {
+    const [{ isDragging }, drag] = useDrag({
+        item: { courseName, type: ItemTypes.COURSE },
+        end: (item, monitor) => {
+            const dropResult = monitor.getDropResult()
+            if (item && dropResult) {
+                alert(`You dropped ${item.name} into ${dropResult.name}!`)
+            }
+        },
+        collect: monitor => ({
+            isDragging: monitor.isDragging(),
+        }),
+    })
+
+    return ( 
+        <div ref={drag} className={classes.Course}>
+            {courseName}
+        </div>
+    )
+}
+
+export default Course
