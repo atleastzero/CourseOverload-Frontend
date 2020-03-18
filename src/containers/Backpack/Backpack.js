@@ -20,11 +20,13 @@ const Backpack = () => {
             code: "Sample123",
             name: "Sample Name", 
             description: "Sample Description", 
+            credits: 3,
             prereqs: null,
             coreqs: null
         }, {
             code: "PSY101",
-            name: "Intro to Psych"
+            name: "Intro to Psych",
+            credits: 3
         }
     ]
 
@@ -39,7 +41,7 @@ const Backpack = () => {
     }, []);
 
     return (
-        <div className={classes.Backpack}>
+        <div ref={drop} className={classes.Backpack}>
             <h1>Backpack</h1>
             {transformCourses}
         </div>
