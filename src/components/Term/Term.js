@@ -6,7 +6,7 @@ import Course from '../../components/Class/Class'
 
 import classes from './Term.module.css'
 
-const Term = ({ termName }) => {
+const Term = ({ termName, courses }) => {
     const [{ canDrop, isOver }, drop] = useDrop({
         accept: ItemTypes.COURSE,
         drop: () => ({ name: termName }),
@@ -16,29 +16,16 @@ const Term = ({ termName }) => {
         }),
     })
 
-    var courses = [
-        {
-            code: "Sample123",
-            name: "Sample Name", 
-            description: "Sample Description", 
-            credits: 3,
-            prereqs: null,
-            coreqs: null
-        }, {
-            code: "PSY101",
-            name: "Intro to Psych",
-            credits: 3
-        }
-    ]
-
-    const moveCourse = () => {
-
-    }
-
     let transformCourses = Object.keys(courses)
     .map((key) => {
             return [...Array(courses[key])].map((_, i) => {
-            return <Course key={key + i} courseName={courses[key].name} />;
+            return <Course 
+                        key={key + i}  
+                        courseCode={courses[key].code}
+                        courseName={courses[key].name} 
+                        courseDescription={courses[key].description} 
+                        courseCredits={courses[key].credits}
+                    />;
             });
     })
     .reduce((arr, el) => {

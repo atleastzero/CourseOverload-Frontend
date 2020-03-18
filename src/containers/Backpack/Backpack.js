@@ -21,20 +21,25 @@ const Backpack = () => {
             name: "Sample Name", 
             description: "Sample Description", 
             credits: 3,
-            prereqs: null,
-            coreqs: null
         }, {
             code: "PSY101",
             name: "Intro to Psych",
+            description: "An introduction to Psychology",
             credits: 3
         }
     ]
 
     let transformCourses = Object.keys(courses)
     .map((key) => {
-            return [...Array(courses[key])].map((_, i) => {
-            return <Course key={key + i} courseName={courses[key].name} />;
-            });
+        return [...Array(courses[key])].map((_, i) => {
+            return <Course 
+                key={key + i}  
+                courseCode={courses[key].code}
+                courseName={courses[key].name} 
+                courseDescription={courses[key].description} 
+                courseCredits={courses[key].credits}
+            />;
+        })
     })
     .reduce((arr, el) => {
         return arr.concat(el)

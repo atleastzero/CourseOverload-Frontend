@@ -4,7 +4,7 @@ import ItemTypes from './ItemTypes'
 
 import classes from './Class.module.css'
 
-const Course = ({ courseName }) => {
+const Course = ({ courseCode, courseName, courseDescription, courseCredits }) => {
     const [{ isDragging }, drag] = useDrag({
         item: { courseName, type: ItemTypes.COURSE },
         end: (item, monitor) => {
@@ -21,7 +21,12 @@ const Course = ({ courseName }) => {
     
     return ( 
         <div ref={drag} className={classes.Course}>
-            {courseName}
+            <div>
+                <strong>{courseCode}</strong>: {courseName} 
+            </div>
+            <div>
+                <small>{courseCredits} Credit Hour(s)</small>
+            </div>
         </div>
     )
 }
